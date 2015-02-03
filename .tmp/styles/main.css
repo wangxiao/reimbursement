@@ -1,0 +1,35 @@
+* {
+  margin: 0px;
+  padding: 0px; }
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0px auto;
+  height: 500px; }
+
+table tr th, table tr td {
+  border-bottom: 1px solid #ddd; }
+
+.lc-work {
+  margin: 0px auto;
+  width: 860px;
+  text-align: center;
+  /*    
+    .logo {
+        width: 50px;
+        height: 80px;
+        color: #2C97E8;
+        font-size: 60px;
+        font-weight: 500;
+        position: absolute;
+    }
+    */ }
+  .lc-work .subhead {
+    margin-bottom: 15px; }
+    .lc-work .subhead p {
+      display: inline-block;
+      margin: 0px 13px; }
+  .lc-work .table tr th, .lc-work .table tr td {
+    padding-left: 45px; }
+  .lc-work .table tr td {
+    text-align: left; }
