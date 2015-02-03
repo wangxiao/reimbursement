@@ -5,10 +5,80 @@
  * Each engineer has a duty to keep the code elegant
  */
 
-'use strict';
 angular.module('StarbuckApp')
 .controller('workCtrl',
-['$scope', 'storageSer', '$location', '$timeout',
-function ($scope, storageSer, $location, $timeout) {
+['$scope', 'storageSer', '$location', '$timeout', 'dataSer', '$window',
+function ($scope, storageSer, $location, $timeout, dataSer, $window) {
+    var userData = dataSer.userData;
+    $scope.printing = false;
+    if (!userData.name) {
+        $location.path('/login');
+        return;
+    }
+    console.log(userData);
+    var date = new Date();
+    $scope.print = {
+        name: userData.name,
+        year: date.getFullYear(),
+        company: userData.company,
+        department: userData.department,
+        invoices: userData.invoices,
+        manager: userData.manager
+    };
+
+    function filter() {
+        var m = date.getMonth();
+        var d = date.getDay();
+        if (String(m).length < 2) {
+            m = '0' + m;
+        }
+        $scope.print.month = m;
+        if (String(d).length < 2) {
+            d = '0' + d;
+        }
+        $scope.print.day = d;
+        
+        // 总金额
+        $scope.print.countMoney = 0;
+        $scope.print.countNum = 0;
+        for (var i = 0, l = userData.invoices.length; i < l; i ++) {
+            $scope.print.countMoney += Number(userData.invoices[i].money);
+            $scope.print.countNum += Number(userData.invoices[i].num);
+        }
+        $scope.print.chineseNum = numberToChinese($scope.print.countMoney);
+    }
+
+    filter();
+
+    $scope.printThing = function() {
+        $scope.printing = true;
+        $timeout(function() {
+            $window.print();
+        }, 300);
+    };
+
+    // 大写转换
+    function numberToChinese(n) {
+        if (!/^(0|[1-9]\d*)(\.\d+)?$/.test(n)) {
+            return "数据非法";
+        }
+        var unit = "千百拾亿千百拾万千百拾元角分";
+        var str = "";
+        n += "00";
+        var p = n.indexOf('.');
+        if (p >= 0) {
+            n = n.substring(0, p) + n.substr(p+1, 2);
+        }
+        unit = unit.substr(unit.length - n.length);
+        for (var i=0; i < n.length; i++) {
+            str += '零壹贰叁肆伍陆柒捌玖'.charAt(n.charAt(i)) + unit.charAt(i);
+        }
+        return str.replace(/零(千|百|拾|角)/g, "零")
+        .replace(/(零)+/g, "零")
+        .replace(/零(万|亿|元)/g, "$1")
+        .replace(/(亿)万|壹(拾)/g, "$1$2")
+        .replace(/^元零?|零分/g, "")
+        .replace(/元$/g, "元整");
+    }
 
 }]);

@@ -4,57 +4,37 @@
         <h1>LeanCloud 费用报销单</h1>
     </div>
     <div class="subhead">
-        <p>王潇</p>
-        <p>2015 年 02 月 03 日</p>
+        <p>{{print.name}}</p>
+        <p>{{print.year}} 年 {{print.month}} 月 {{print.day}} 日</p>
     </div>
     <table class="table table-hover">
         <tbody>
             <tr>
                 <th>公司</th>
-                <td>美味书签（北京）信息技术有限公司</td>
+                <td>{{print.company}}</td>
                 <th>部门</th>
-                <td>研发部</td>
+                <td>{{print.department}}</td>
             </tr>
-                <td rowspan="6"></td>
+                <td rowspan="{{print.invoices.length + 1}}"></td>
                 <th>费用承担类型</th>
                 <th>金额</th>
                 <th>发票张数</th>
-            <tr>
-                <td>打车费</td>
-                <td>132.22</td>
-                <td>14</td>
-            </tr>
-            <tr>
-                <td>打车费</td>
-                <td>132.22</td>
-                <td>14</td>
-            </tr>
-            <tr>
-                <td>打车费</td>
-                <td>132.22</td>
-                <td>14</td>
-            </tr>
-            <tr>
-                <td>打车费</td>
-                <td>132.22</td>
-                <td>14</td>
-            </tr>
-            <tr>
-                <td>打车费</td>
-                <td>132.22</td>
-                <td>14</td>
+            <tr ng-repeat="item in print.invoices">
+                <td>{{item.invoice}}</td>
+                <td>{{item.money}}</td>
+                <td>{{item.num}}</td>
             </tr>
             <tr>
                 <th>总金额</th>
-                <td>231,231 元</td>
+                <th>{{print.countMoney}} 元</th>
                 <th>人民币大写</th>
-                <td>两万两百叁拾叁元整</td>
+                <td>{{print.chineseNum}}</td>
             </tr>
             <tr>
                 <th>发票总数</th>
-                <td>14 张</td>
+                <th>{{print.countNum}} 张</th>
                 <th>审批人</th>
-                <td>丰俊文</td>
+                <td>{{print.manager}}</td>
             </tr>
             <tr>
                 <th>领款人签字：</th>
@@ -64,5 +44,8 @@
             </tr>            
         </tbody>
     </table>
+    <section ng-if="!printing" layout="row" layout-sm="column" layout-align="center center">
+        <md-button class="md-raised md-primary col-sm-4 login-btn" ng-click="printThing()">打印报销单</md-button>
+    </section>
 <div>
 
