@@ -10,20 +10,32 @@ body {
 table tr th, table tr td {
   border-bottom: 1px solid #ddd; }
 
+.lc-login {
+  padding-top: 40px; }
+  .lc-login .logo {
+    width: 300px;
+    color: #2C97E8;
+    font-size: 60px;
+    font-weight: 500;
+    margin: 0px auto; }
+  .lc-login h1 {
+    text-align: center; }
+  .lc-login .form {
+    margin: 0px auto;
+    width: 720px; }
+    .lc-login .form .name {
+      margin: 0 auto; }
+    .lc-login .form .login-btn {
+      margin-top: 30px; }
+    .lc-login .form .add-item-btn {
+      width: 45px;
+      height: 45px;
+      margin: 0px auto; }
+
 .lc-work {
   margin: 0px auto;
   width: 860px;
-  text-align: center;
-  /*    
-    .logo {
-        width: 50px;
-        height: 80px;
-        color: #2C97E8;
-        font-size: 60px;
-        font-weight: 500;
-        position: absolute;
-    }
-    */ }
+  text-align: center; }
   .lc-work .subhead {
     margin-bottom: 15px; }
     .lc-work .subhead p {
