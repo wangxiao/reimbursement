@@ -55,7 +55,7 @@
     <section ng-if="!printing" layout="row" layout-sm="column" layout-align="center center">
         <md-button class="md-raised md-primary col-sm-4 login-btn" ng-click="printThing()">打印报销单</md-button>
     </section>
-    <div class="line">
+    <div ng-if="printing" class="line">
         <p>虚线内贴发票</p>
     </div>
 <div>
