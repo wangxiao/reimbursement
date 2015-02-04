@@ -62,7 +62,7 @@ function ($scope, storageSer, $location, $timeout, dataSer, $window) {
         if (!/^(0|[1-9]\d*)(\.\d+)?$/.test(n)) {
             return "数据非法";
         }
-        var unit = "千百拾亿千百拾万千百拾元角分";
+        var unit = "仟佰拾亿仟佰拾万仟佰拾元角分";
         var str = "";
         n += "00";
         var p = n.indexOf('.');
@@ -73,7 +73,7 @@ function ($scope, storageSer, $location, $timeout, dataSer, $window) {
         for (var i=0; i < n.length; i++) {
             str += '零壹贰叁肆伍陆柒捌玖'.charAt(n.charAt(i)) + unit.charAt(i);
         }
-        return str.replace(/零(千|百|拾|角)/g, "零")
+        return str.replace(/零(仟|佰|拾|角)/g, "零")
         .replace(/(零)+/g, "零")
         .replace(/零(万|亿|元)/g, "$1")
         .replace(/(亿)万|壹(拾)/g, "$1$2")

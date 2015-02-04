@@ -7,7 +7,7 @@
         <p>{{print.name}}</p>
         <p>{{print.year}} 年 {{print.month}} 月 {{print.day}} 日</p>
     </div>
-    <table class="table table-hover">
+    <table class="table table-bordered table-hover">
         <tbody>
             <tr>
                 <th>公司</th>
@@ -15,10 +15,11 @@
                 <th>部门</th>
                 <td>{{print.department}}</td>
             </tr>
-                <td rowspan="{{print.invoices.length + 1}}"></td>
+                <td class="abstract" rowspan="{{print.invoices.length + 1}}">摘要</td>
                 <th>费用承担类型</th>
                 <th>金额</th>
                 <th>发票张数</th>
+            </tr>
             <tr ng-repeat="item in print.invoices">
                 <td>{{item.invoice}}</td>
                 <td>{{item.money}}</td>
@@ -39,13 +40,20 @@
             <tr>
                 <th>领款人签字：</th>
                 <td></td>
-                <th>审批人签字：</th>
+                <th>审核人签字：</th>
                 <td></td>
-            </tr>            
+            </tr> 
+            <tr>
+                <th>审核人签字：</th>
+                <td></td>
+                <th>财务签字：</th>
+                <td></td>
+            </tr> 
         </tbody>
     </table>
     <section ng-if="!printing" layout="row" layout-sm="column" layout-align="center center">
         <md-button class="md-raised md-primary col-sm-4 login-btn" ng-click="printThing()">打印报销单</md-button>
     </section>
+    <div class="line"></div>
 <div>
 

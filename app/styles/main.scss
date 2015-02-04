@@ -9,6 +9,10 @@ body {
     height: 500px;
 }
 
+h1 {
+    margin: 10px auto;
+}
+
 table {
     tr {
         th, td {
@@ -54,7 +58,7 @@ table {
         
     }
     .subhead {
-        margin-bottom: 15px;
+        margin-bottom: 5px;
         p {
             display: inline-block;
             margin: 0px 13px;
@@ -68,6 +72,15 @@ table {
             td {
                 text-align: left;
             }
+            .abstract {
+                vertical-align: inherit;
+            }
         }
+    }
+    .line {
+        position: absolute;
+        top: 12cm;
+        width: 100%;
+        border-top: 1px dashed #888;
     }
 }

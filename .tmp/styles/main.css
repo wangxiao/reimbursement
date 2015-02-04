@@ -7,6 +7,9 @@ body {
   margin: 0px auto;
   height: 500px; }
 
+h1 {
+  margin: 10px auto; }
+
 table tr th, table tr td {
   border-bottom: 1px solid #ddd; }
 
@@ -37,7 +40,7 @@ table tr th, table tr td {
   width: 860px;
   text-align: center; }
   .lc-work .subhead {
-    margin-bottom: 15px; }
+    margin-bottom: 5px; }
     .lc-work .subhead p {
       display: inline-block;
       margin: 0px 13px; }
@@ -45,3 +48,10 @@ table tr th, table tr td {
     padding-left: 45px; }
   .lc-work .table tr td {
     text-align: left; }
+  .lc-work .table tr .abstract {
+    vertical-align: inherit; }
+  .lc-work .line {
+    position: absolute;
+    top: 12cm;
+    width: 100%;
+    border-top: 1px dashed #888; }
