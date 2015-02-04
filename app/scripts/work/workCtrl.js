@@ -7,9 +7,10 @@
 
 angular.module('StarbuckApp')
 .controller('workCtrl',
-['$scope', 'storageSer', '$location', '$timeout', 'dataSer', '$window',
-function ($scope, storageSer, $location, $timeout, dataSer, $window) {
+['$scope', 'storageSer', '$location', '$timeout', 'dataSer', '$window', '$mdDialog',
+function ($scope, storageSer, $location, $timeout, dataSer, $window, $mdDialog) {
     var userData = dataSer.userData;
+    var dialogShow = storageSer.item('printDialogFlag');
     $scope.printing = false;
     if (!userData.name) {
         $location.path('/login');
@@ -99,4 +100,13 @@ function ($scope, storageSer, $location, $timeout, dataSer, $window) {
         return s.replace(/^\./, "0.");
     }
 
+    if (!dialogShow) {
+        $mdDialog.show(
+            $mdDialog.alert()
+                .title('友情提醒')
+                .content('打印时，请去掉「页眉与页脚」选项，不然边边姐会觉得特别难看。')
+                .ok('知道了')
+        );
+        storageSer.item('printDialogFlag', true);
+    }
 }]);

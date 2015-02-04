@@ -7,9 +7,10 @@
 
 angular.module('StarbuckApp')
 .controller('loginCtrl', 
-['$scope', 'storageSer', 'dataSer', '$location',
-function ($scope, storageSer, dataSer, $location) {
+['$scope', 'storageSer', 'dataSer', '$location', '$mdDialog',
+function ($scope, storageSer, dataSer, $location, $mdDialog) {
     var name = storageSer.item('name');
+    var dialogShow = storageSer.item('dialogFlag');
     $scope.ui = {
         companys: dataSer.companys,
         departments: dataSer.departments,
@@ -41,4 +42,15 @@ function ($scope, storageSer, dataSer, $location) {
             $location.path('/work');
         }
     };
+    
+    if (!dialogShow) {
+        $mdDialog.show(
+            $mdDialog.alert()
+                .title('欢迎使用')
+                .content('首次使用前，麻烦您确认已经配置好打印机。不知道如何配置，可以找教练。')
+                .ok('知道了')
+        );
+        storageSer.item('dialogFlag', true);       
+    }
+
 }]);

@@ -79,8 +79,9 @@ table {
     }
     .line {
         position: absolute;
-        top: 14cm;
+        top: 13cm;
         width: 870px;
-        border-top: 1px dashed #888;
+        height: 14cm;
+        border: 1px dashed #888;
     }
 }
