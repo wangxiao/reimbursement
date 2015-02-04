@@ -45,6 +45,7 @@ function ($scope, storageSer, $location, $timeout, dataSer, $window) {
             $scope.print.countMoney += Number(userData.invoices[i].money);
             $scope.print.countNum += Number(userData.invoices[i].num);
         }
+        $scope.print.countMoney = formatNum(String($scope.print.countMoney));
         $scope.print.chineseNum = numberToChinese($scope.print.countMoney);
     }
 
@@ -79,6 +80,22 @@ function ($scope, storageSer, $location, $timeout, dataSer, $window) {
         .replace(/(亿)万|壹(拾)/g, "$1$2")
         .replace(/^元零?|零分/g, "")
         .replace(/元$/g, "元整");
+    }
+
+    // 添加千位符
+    function formatNum(s){
+        if (/[^0-9\.]/.test(s)) {
+            return "invalid value";
+        }
+        s = s.replace(/^(\d*)$/,"$1.");
+        s = (s + "00").replace(/(\d*\.\d\d)\d*/, "$1");
+        s = s.replace(".", ",");
+        var re = /(\d)(\d{3},)/;
+        while (re.test(s)) {
+            s = s.replace(re, "$1,$2");
+        }
+        s = s.replace(/,(\d\d)$/, ".$1");
+        return s.replace(/^\./, "0.");
     }
 
 }]);

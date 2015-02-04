@@ -35,7 +35,7 @@
             <tr>
                 <th>发票总数</th>
                 <th>{{print.countNum}} 张</th>
-                <th>审批人</th>
+                <th>审核人</th>
                 <td>{{print.manager}}</td>
             </tr>
             <tr>
@@ -45,7 +45,7 @@
                 <td></td>
             </tr> 
             <tr>
-                <th>审核人签字：</th>
+                <th>审批人签字：</th>
                 <td></td>
                 <th>财务签字：</th>
                 <td></td>
@@ -55,6 +55,8 @@
     <section ng-if="!printing" layout="row" layout-sm="column" layout-align="center center">
         <md-button class="md-raised md-primary col-sm-4 login-btn" ng-click="printThing()">打印报销单</md-button>
     </section>
-    <div class="line"></div>
+    <div class="line">
+        <p>虚线下方贴发票</p>
+    </div>
 <div>
 
