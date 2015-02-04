@@ -45,8 +45,8 @@ function ($scope, storageSer, $location, $timeout, dataSer, $window) {
             $scope.print.countMoney += Number(userData.invoices[i].money);
             $scope.print.countNum += Number(userData.invoices[i].num);
         }
-        $scope.print.countMoney = formatNum(String($scope.print.countMoney));
         $scope.print.chineseNum = numberToChinese($scope.print.countMoney);
+        $scope.print.countMoney = formatNum(String($scope.print.countMoney));
     }
 
     filter();
