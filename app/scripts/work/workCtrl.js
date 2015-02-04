@@ -43,6 +43,7 @@ function ($scope, storageSer, $location, $timeout, dataSer, $window) {
         $scope.print.countNum = 0;
         for (var i = 0, l = userData.invoices.length; i < l; i ++) {
             $scope.print.countMoney += Number(userData.invoices[i].money);
+            $scope.print.invoices[i].money = formatNum(String(userData.invoices[i].money));
             $scope.print.countNum += Number(userData.invoices[i].num);
         }
         $scope.print.chineseNum = numberToChinese($scope.print.countMoney);
