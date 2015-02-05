@@ -9,7 +9,7 @@
         <div class="form-horizontal" role="form">
             <div class="form-group">
                 <label class="col-sm-3 control-label">公司</label>
-                <div class="col-sm-7">
+                <div class="col-sm-8">
                     <select class="form-control" 
                     ng-model="userData.company" 
                     ng-options="item for item in ui.companys">
@@ -25,7 +25,7 @@
                     </select>
                 </div>
                 <label class="col-sm-2 control-label">审核人</label>
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <select class="form-control" 
                     ng-model="userData.manager" 
                     ng-options="item for item in ui.managers">
@@ -44,7 +44,7 @@
                 <div class="col-sm-2">
                     <input ng-model="item.num" type="number" min="0" class="form-control" placeholder="张数">
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <input ng-model="item.money" type="number" min="0" class="form-control" placeholder="金额">
                 </div>
             </div>
