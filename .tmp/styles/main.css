@@ -38,7 +38,8 @@ table tr th, table tr td {
 .lc-work {
   margin: 0px auto;
   width: 860px;
-  text-align: center; }
+  text-align: center;
+  position: relative; }
   .lc-work .subhead {
     margin-bottom: 5px; }
     .lc-work .subhead p {
