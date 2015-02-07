@@ -50,6 +50,10 @@
             </div>
         </div>
         <md-button class="md-fab glyphicon glyphicon-plus add-item-btn" ng-click="addNewItem()"></md-button>
+        <md-input-container class="note col-sm-6">
+            <label>备注（选填）</label>
+            <input ng-model="userData.note">
+        </md-input-container>
         <section layout="row" layout-sm="column" layout-align="center center">
             <md-button class="md-raised md-primary col-sm-4 login-btn" ng-click="submit()">生成报销单</md-button>
         </section>

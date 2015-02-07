@@ -26,11 +26,15 @@
                 <td>{{item.money}}</td>
                 <td>{{item.num}}</td>
             </tr>
+            <tr ng-if="print.note">
+                <th>备注</th>
+                <td colspan="3">{{print.note}}</td>
+            </tr>
             <tr>
                 <th>总金额</th>
                 <th>{{print.countMoney}} 元</th>
                 <th>人民币大写</th>
-                <td>{{print.chineseNum}}</td>
+                <th>{{print.chineseNum}}</th>
             </tr>
             <tr>
                 <th>发票总数</th>
@@ -49,7 +53,7 @@
                 <td></td>
                 <th>财务签字：</th>
                 <td></td>
-            </tr> 
+            </tr>
         </tbody>
     </table>
     <section ng-if="!printing" layout="row" layout-sm="column" layout-align="center center">

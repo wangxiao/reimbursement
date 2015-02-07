@@ -28,11 +28,11 @@ table tr th, table tr td {
     width: 720px; }
     .lc-login .form .name {
       margin: 0 auto; }
-    .lc-login .form .login-btn {
-      margin-top: 30px; }
     .lc-login .form .add-item-btn {
       width: 45px;
       height: 45px;
+      margin: 0px auto; }
+    .lc-login .form .note {
       margin: 0px auto; }
 
 .lc-work {

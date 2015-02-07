@@ -24,7 +24,8 @@ function ($scope, storageSer, $location, $timeout, dataSer, $window, $mdDialog) 
         company: userData.company,
         department: userData.department,
         invoices: userData.invoices,
-        manager: userData.manager
+        manager: userData.manager,
+        note: userData.note
     };
 
     function filter() {

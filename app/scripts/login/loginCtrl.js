@@ -22,6 +22,7 @@ function ($scope, storageSer, dataSer, $location, $mdDialog) {
         company: $scope.ui.companys[0],
         department: $scope.ui.departments[0],
         manager: $scope.ui.managers[0],
+        note: '',
         invoices: [{
             invoice: $scope.ui.invoices[0],
             num: undefined,
