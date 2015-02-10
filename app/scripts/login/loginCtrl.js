@@ -34,8 +34,8 @@ function ($scope, storageSer, dataSer, $location, $mdDialog) {
             $mdDialog.show(
                 $mdDialog.alert()
                     .title('提示')
-                    .content('一页报销单最多支持五行，如果五行已上请填另一页。')
-                    .ok('要完全解决这个问题我会自己改代码的')
+                    .content('一页报销单最多支持五行，如果超出请另填一页报销单。')
+                    .ok('好的')
             );
         } else {
             $scope.userData.invoices.push({
