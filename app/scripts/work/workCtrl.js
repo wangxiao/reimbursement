@@ -30,7 +30,7 @@ function ($scope, storageSer, $location, $timeout, dataSer, $window, $mdDialog) 
 
     function filter() {
         var m = date.getMonth() + 1;
-        var d = date.getDay() + 1;
+        var d = date.getDate();
         if (String(m).length < 2) {
             m = '0' + m;
         }
