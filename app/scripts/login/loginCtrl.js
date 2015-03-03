@@ -11,6 +11,7 @@ angular.module('StarbuckApp')
 function ($scope, storageSer, dataSer, $location, $mdDialog) {
     var name = storageSer.item('name');
     var dialogShow = storageSer.item('dialogFlag');
+    var noteTipShow = false;
     $scope.ui = {
         companys: dataSer.companys,
         departments: dataSer.departments,
@@ -68,4 +69,15 @@ function ($scope, storageSer, dataSer, $location, $mdDialog) {
         storageSer.item('dialogFlag', true);       
     }
 
+    $scope.showNoteTip = function() {
+        if (!noteTipShow) {
+            $mdDialog.show(
+                $mdDialog.alert()
+                    .title('边边姐说')
+                    .content('「备注」这项不能瞎写，是给特殊情况准备的，比如招待费明细之类的。一般情况不需要，如果需要填写找边边姐确认，否则可能导致报销单无效。')
+                    .ok('知道了')
+            );
+            noteTipShow = true;
+        }
+    };
 }]);
