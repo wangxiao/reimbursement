@@ -44,9 +44,15 @@ function ($scope, storageSer, $location, $timeout, dataSer, $window, $mdDialog) 
         $scope.print.countMoney = 0;
         $scope.print.countNum = 0;
         for (var i = 0, l = userData.invoices.length; i < l; i ++) {
-            $scope.print.countMoney += Number(userData.invoices[i].money);
-            $scope.print.invoices[i].money = formatNum(String(userData.invoices[i].money));
-            $scope.print.countNum += Number(userData.invoices[i].num);
+            if (userData.invoices[i] && userData.invoices[i].money && userData.invoices[i].num) {
+                $scope.print.countMoney += Number(userData.invoices[i].money);
+                $scope.print.invoices[i].money = formatNum(String(userData.invoices[i].money));
+                $scope.print.countNum += Number(userData.invoices[i].num);
+            } else {
+                userData.invoices.splice(i, 1);
+                i --;
+                l --;
+            }
         }
         $scope.print.chineseNum = numberToChinese($scope.print.countMoney);
         $scope.print.countMoney = formatNum(String($scope.print.countMoney));
