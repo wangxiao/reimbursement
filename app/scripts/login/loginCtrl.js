@@ -45,6 +45,11 @@ function ($scope, storageSer, dataSer, $location, $mdDialog) {
             });
         }
     };
+    $scope.removeItem = function(index) {
+        if ($scope.userData.invoices.length > 1) {
+            $scope.userData.invoices.splice(index, 1);
+        }
+    };
     $scope.submit = function() {
         if ($scope.userData.name) {
             storageSer.item('name', $scope.userData.name);
